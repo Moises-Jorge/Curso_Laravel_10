@@ -13,6 +13,6 @@ class SupportController extends Controller
         // Getting dates from database from our model "Support" that have conection with our migration "supports"
         $supports = $support->all();
 
-        return view('admin/supports/index', compact('supports'));
+        return view('admin/supports/index', compact('supports')); // Enviando todos os valores retornado nos "Supports" para a blade e manipula-los por la.
     }
 }
