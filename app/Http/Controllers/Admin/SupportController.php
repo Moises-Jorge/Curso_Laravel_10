@@ -15,4 +15,14 @@ class SupportController extends Controller
 
         return view('admin/supports/index', compact('supports')); // Enviando todos os valores retornado nos "Supports" para a blade e manipula-los por la.
     }
+
+    // Metodo responsavel por cadastrar um novo suporte/duvida
+    public function create() {
+        return view('admin/supports/create');
+    }
+
+    // Metodo responsavel por receber a nova duvida e armazena-la
+    public function store(Request $request) {
+        dd($request->all());
+    }
 }

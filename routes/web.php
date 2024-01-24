@@ -14,3 +14,9 @@ Route::get('/contato', [SiteController::class, 'contact']);
 
 // Rota para listagem do Fórum/Suporte (pedido de suporte)
 Route::get('/supports', [SupportController::class, 'index'])->name('supports.index');
+
+// Routa para a criacao de uma nova duvida
+Route::get('/supports/create', [SupportController::class, 'create'])->name('supports.create');
+
+// Rota responsavel por receber a nova duvida
+Route::post('/supports', [SupportController::class, 'store'])->name('supports.store');
