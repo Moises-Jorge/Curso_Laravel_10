@@ -20,3 +20,6 @@ Route::get('/supports/create', [SupportController::class, 'create'])->name('supp
 
 // Rota responsavel por receber a nova duvida
 Route::post('/supports', [SupportController::class, 'store'])->name('supports.store');
+
+// Rota que vai exibir os detalhes de um suporte/duvida
+Route::get('/supports/{id}', [SupportController::class, 'show'])->name('supports.show');

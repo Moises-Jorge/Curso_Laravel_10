@@ -16,6 +16,14 @@ class SupportController extends Controller
         return view('admin/supports/index', compact('supports')); // Enviando todos os valores retornado nos "Supports" para a blade e manipula-los por la.
     }
 
+    // Metodo responsavel por exibir os detalhes de um registro (suporte)
+    public function show(string|int $id) {
+        if (!$support = Support::find($id)) // find() -> recupera um item pelo parametro passado, nesse caso eh o id. Se o item nao for encontrado, o utilizador eh redirecionado na pagina anterior
+            return redirect()->back();
+        
+        return view('admin/supports/show', compact('support'));
+    }
+
     // Metodo responsavel por cadastrar um novo suporte/duvida
     public function create() {
         return view('admin/supports/create');
