@@ -22,7 +22,12 @@ class SupportController extends Controller
     }
 
     // Metodo responsavel por receber a nova duvida e armazena-la
-    public function store(Request $request) {
-        dd($request->all());
+    public function store(Request $request, Support $support) {
+        $data = $request->all();
+        $data['status'] = 'a'; // Para todos os suportes a serem cadastrados, inicializar o campo "status" com "a -> active"
+
+        $support->create($data); // Fazendo a insersecao na BD, na tabela de suporte.
+        
+        return redirect()->route('supports.index'); // Depois de fazer o cadastro, redirecionar para a pagina de listagem dos suportes
     }
 }
