@@ -23,3 +23,9 @@ Route::post('/supports', [SupportController::class, 'store'])->name('supports.st
 
 // Rota que vai exibir os detalhes de um suporte/duvida
 Route::get('/supports/{id}', [SupportController::class, 'show'])->name('supports.show');
+
+// Rota responsavel pela Edicao dos registros
+Route::get('/supports/{id}/edit', [SupportController::class, 'edit'])->name('supports.edit');
+
+// Rota responsavel por actulizar as edicoes feitas nos registos
+//Route::put('/supports/{id}', [SupportController::class, 'update'])->name('supports.update');

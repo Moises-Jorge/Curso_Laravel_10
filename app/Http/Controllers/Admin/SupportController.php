@@ -38,4 +38,15 @@ class SupportController extends Controller
         
         return redirect()->route('supports.index'); // Depois de fazer o cadastro, redirecionar para a pagina de listagem dos suportes
     }
+
+    // Metodo responsavel pela edicao dos registros
+    public function edit(Support $support, string|int $id) {
+        if (!$support = $support->where('id', $id)->first())
+            return redirect()->back();
+
+        return view('admin/supports/edit', compact('support'));
+    }
+
+    // Metodo responsavel por actualizar as edicoes no BD
+    
 }
